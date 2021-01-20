@@ -1,0 +1,99 @@
+.conversation__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    border-bottom: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    position: relative;
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: lightgrey;
+
+        .conversation__expandButton {
+            display: block;
+        }
+    }
+    .conversation__avatar {
+        margin: 0 20px;
+    }
+
+    .conversation__info {
+        padding: 5px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 0.8;
+
+        p {
+            margin: 0;
+        }
+        .conversation__name {
+            margin: 0;
+            margin-top: 12px;
+            font-size: 1rem;
+        }
+
+        .conversation__lastMessage {
+            font-size: 1rem;
+        }
+    }
+
+    .conversation__timestamp {
+        margin: 0px;
+    }
+
+
+
+    .conversation__menu {
+        position: relative;
+        flex: 0.3;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+    .conversation__expandButton {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        display: none;
+        z-index: 10;
+
+
+    }
+}
+  
+
+.conversation__addBox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 27px;
+    height: 10vh;
+    border-bottom: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    position: relative;
+    .conversation__add {
+        cursor: pointer;
+
+        &:hover {
+            background-color: #00e676;
+            color: white;
+            border-radius: 2px;
+        }
+    }
+    h4 {
+        margin-left: 45px;
+    }
+}

@@ -1,0 +1,94 @@
+.auth__background {
+    background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png"); 
+    height: 100vh;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: margin 5000ms 1;
+    flex: 1;
+}
+
+.auth__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.514);
+
+    .auth__loginButton {
+        text-decoration: underline;
+        color: #00ba00;
+        cursor: pointer;
+    }
+
+    .auth__registerButton {
+        text-decoration: underline;
+        color: #00ba00;
+        cursor: pointer;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-family: inherit;
+        font-size: 1rem;
+        background-color: #00ba00;
+        color: white;
+        border: 2px solid transparent;
+        border-radius: 12px;
+        cursor: pointer;
+
+        &:hover {
+            border: 2px solid black;
+        }
+    }
+
+    img {
+        width: 50%;
+    }
+
+
+    .authNormal__container {
+        display: flex;
+        flex-direction: column;
+
+        span {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 0.8rem;
+            position: relative;
+            .MuiSvgIcon-root {
+                width: 20px;
+                position: absolute;
+                left: 135px;
+            }
+        }
+
+        .MuiFormControl-root {
+            margin: 10px 0;
+        }
+
+        button {
+            margin: 20px 0;
+        }
+    }
+    .aut__logVisitor {
+        text-decoration: underline;
+        font-size: 0.8rem;
+        cursor: pointer;
+    }
+}
+
+.notOnScreen {
+    display: none !important;
+}
+
+
+.error__message {
+    background-color: brown;
+    padding: 12px;
+    color: white;
+}
