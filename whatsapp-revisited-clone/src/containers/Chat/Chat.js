@@ -194,7 +194,14 @@ const Chat = (props) => {
         .collection("conversations")
         .doc(props.roomName)
         .delete()
-        setMessageCanal([])
+        setMessageCanal([]);
+
+        db
+        .collection("Users")
+        .doc(props.pseudo.userId)
+        .collection("conversations")
+        .doc(props.roomName)
+        .delete()
     }
     let messageBody = document.querySelector('.chat__content');
     if(messageBody) {
