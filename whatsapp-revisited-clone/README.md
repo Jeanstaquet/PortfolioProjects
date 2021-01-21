@@ -3,7 +3,7 @@ This project is a clone of what's app web. It has all the most important feature
 
 # Features!
 Here is a list, the details of each feature are further down in the file
-- Mainly the same IU as the original
+- Mainly the same IU as the original Whats'app
 - Create an account 
 - Talk to whoever you want
 - You can send files in the chat 
@@ -25,7 +25,7 @@ This project uses mainly Javascript, the react library, npm packages and firebas
 To run this project, install it locally using npm:
 ```
 $ cd ../lorem
-git clone [url]
+$ git clone [url]
 $ npm install
 $ npm start
 ```
