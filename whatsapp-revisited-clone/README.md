@@ -19,7 +19,7 @@ This project uses mainly Javascript, the react library, npm packages and firebas
 - [Firestore](https://firebase.google.com/docs/firestore) - NoSQL cloud database from firebase
 - [Redux](https://redux.js.org/) - Redux, this has made it possible to be a data layer for the application
 - [SaSS](https://sass-lang.com/) - SaaS is a CSS extension to make more understandable CSS
-- [Material-UI](https://material-ui.com/) - React components web development
+- [Material-UI](https://material-ui.com/) - React components for web development
 
 ### Installation
 To run this project, install it locally using npm:
