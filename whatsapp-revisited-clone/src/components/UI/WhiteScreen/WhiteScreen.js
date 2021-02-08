@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import "./WhiteScreen.scss";
+import "./WhiteScreen.css";
 
 const WhiteScreen = (props) => {
     return (

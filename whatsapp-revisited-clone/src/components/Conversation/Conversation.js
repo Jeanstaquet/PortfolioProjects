@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Conversation.scss";
+import "./Conversation.css";
 import { Avatar } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';

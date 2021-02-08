@@ -1,0 +1,35 @@
+.whiteScreen__container {
+    position: fixed;
+    width: 70vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.645);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 30vw;
+    transition: all 0.5s ease;
+}
+.whiteScreen__container .whiteScreen__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00e676;
+    width: 80%;
+    border-radius: 12px;
+    box-shadow: 10px 10px grey;
+}
+.whiteScreen__container .whiteScreen__content .WhiteScreen__title {
+    color: white;
+    font-weight: lighter;
+}
+.whiteScreen__container .whiteScreen__content .BeginPhoto {
+    width: 100%;
+}
+.whiteScreen__container .whiteScreen__content .WhatsappLogo {
+    width: 20%;
+    margin: 20px 0;
+}
+.transform {
+    transform: translateX(70vw);
+}

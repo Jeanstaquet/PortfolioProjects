@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Message.scss";
+import "./Message.css";
 const Message = (props) => {
     return (
         <div className={props.reciever ? "message__container" : "message__container sender"}>

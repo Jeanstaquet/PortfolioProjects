@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import "./Auth.scss";
+import "./Auth.css";
 import TextField from '@material-ui/core/TextField';
-import DoneIcon from '@material-ui/icons/Done';
-import CloseIcon from '@material-ui/icons/Close';
 import * as actions from "../../store/action/index";
 import { Redirect } from 'react-router-dom';
 //Quand l'ath à reussi, il faut aussi mettre le pseudo de la personne qui se connecte
@@ -35,7 +33,7 @@ const Auth = (props) => {
     }
 
     const visitorAuth = () => {
-        props.auth("admin@admin.com", "admin123456", "", false)
+        props.auth("admin@admin.com", "admin123456", false)
     }
 
     const switchMethod = () => {
@@ -78,7 +76,6 @@ const Auth = (props) => {
                         required
                         value={pseudo}
                     />: null}
-                    {method==="Register" ? <span className="auth__available">Check if it is availble : <CloseIcon className="notOnScreen"/><DoneIcon/></span>: null}
                     <TextField onChange={(e) => setPassword(e.target.value)}
                         id="filled-password-input"
                         label="Password"

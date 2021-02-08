@@ -3,7 +3,7 @@ import Auth from "./containers/Auth/Auth";
 import Conversations from "./containers/Conversations/Conversations";
 import Chat from "./containers/Chat/Chat";
 import {connect} from "react-redux"
-import "./App.scss";
+import "./App.css";
 
 import {Route, Switch} from "react-router-dom";
 const App = () => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "./Chat.scss";
+import "./Chat.css";
 import SearchIcon from '@material-ui/icons/Search';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
@@ -27,9 +27,6 @@ const Chat = (props) => {
     const [searchBar, setSearchBar] = useState("");
     const [showSearchBar, setShowSearchBar] = useState(false);
     const [showContactMenu, setShowContactMenu] = useState(false);
-    const [recording, setRecording] = useState(false)
-    const [showModalRecording, setShowModalRecording] = useState(true);
-    const [blopUrl, setBlopUrl] = useState("")
     let iconSend = mess.length < 1 ? <Tooltip title="Record a voice message" arrow><MicIcon className="chat__sendMessageMic"/></Tooltip> : <Tooltip title="Send the message" arrow><SendIcon onClick={(e) => sendMessage(e, mess)} className="chat__sendMessageMic"/></Tooltip>
 
     useEffect(() => {
@@ -207,44 +204,13 @@ const Chat = (props) => {
     if(messageBody) {
         messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
     }
-    const closeModalRecording = () => {
-        setShowModalRecording(!showModalRecording)
-    }
-
-    const beginEndRecording = (arg) => {
-        if(arg==="close") {
-            setRecording(false)
-        } else if(arg==="begin") {
-            setRecording(true)
-        }
-    }
-
-    const onData = (recordedBlob, fileName) =>  {
-            //A Blob() is almost a File() - it's just missing the two properties below which we will add
-            recordedBlob.lastModifiedDate = new Date();
-            recordedBlob.name = fileName;
-            setBlopUrl(recordedBlob.blobURL); 
-            console.log(recordedBlob)
-
-            //let myBlob = new Blob(recordedBlob.blobURL);
-            //console.log(myBlob)
-            let audio = URL.createObjectURL(recordedBlob.blobURL)
-            console.log(audio)
-        }
 
     return (
         <div className="chat__container">
-            <ImageModal 
-                show={showModalRecording} 
-                record={true} 
-                isRec={recording} 
-                closePP={closeModalRecording}
-                recordingBeginEnd={beginEndRecording}
-                onData={onData}
-                blopUrl={blopUrl}/>
+            <ImageModal show={true} image={imageToShow ? true : null} imgUrl={imageToShow} close={closeImageModal}/>
             <div className="chat__banner">
                 <div className="chat__bannerInfo">
-                    <Avatar className="chat__bannerAvatar" src={props.contactData.photo ? props.contactData.photo: null}>{props.contact!==null ? props.contact[0] : null}</Avatar>
+                    <Avatar className="chat__bannerAvatar" src={props.contactData.photo !== null ? props.contactData.photo: null}></Avatar>
                     <div className="chat__info">
                         <p>{props.contact}</p>
                     </div>

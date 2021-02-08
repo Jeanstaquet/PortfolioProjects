@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import "./ImageModal.scss";
+import "./ImageModal.css";
 
 const ImageModal = (props) => {
     let modal = null;

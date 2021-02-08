@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./FeatureMenu.scss";
+import "./FeatureMenu.css";
 import Modal from "../../components/UI/Modal/Modal";
 import ClearIcon from '@material-ui/icons/Clear';
 import {connect} from "react-redux";

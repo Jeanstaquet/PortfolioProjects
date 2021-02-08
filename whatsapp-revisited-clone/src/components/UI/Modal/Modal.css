@@ -1,0 +1,82 @@
+.modal-transition-enter {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+.modal-transition-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+}
+.modal-transition-exit {
+    opacity: 1;
+    transform: translateX();
+}
+.modal-transition-exit-active {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 300ms, transform 300ms;
+}
+.modal__container {
+    z-index: 10;
+    position: fixed;
+    left: 35%;
+    top: 40%;
+    background-color: white;
+    width: 40vw;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 500ms;
+}
+.modal__container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.modal__container form h4 {
+    color: red;
+}
+.modal__container form input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 20px;
+}
+.modal__container form button {
+    border: 1px solid transparent;
+    padding: 12px;
+    margin: 0 12px;
+    border-radius: 5px;
+    background-color: #25d365 8c;
+}
+.modal__container form button:hover {
+    cursor: pointer;
+    background-color: #25d366;
+}
+.modal__container form .modal__addPerson {
+    position: relative;
+}
+.modal__container form .modal__addPerson .MuiSvgIcon-root {
+    position: absolute;
+    bottom: 28px;
+    right: 30px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.modal__container form .modal__addPerson .MuiSvgIcon-root:hover {
+    color: #00e676;
+}
+.errorInput {
+    border: 1px solid red !important;
+}
+.close {
+    display: none !important;
+}
+.account {
+    position: fixed;
+    left: 27vw;
+    top: 37vh;
+}
+.modular__modalTitle {
+    color: black !important;
+}

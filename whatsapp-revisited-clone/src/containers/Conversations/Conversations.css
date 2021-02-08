@@ -1,0 +1,96 @@
+.converstations__container {
+    flex: 0.43;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+    background-color: rgba(211, 211, 211, 0.397);
+}
+.converstations__container .conv__account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8%;
+    position: relative;
+    border: 1px solid lightgray;
+    border-bottom: none;
+}
+.converstations__container .conv__account .conv__avatar {
+    background-color: rgba(255, 166, 0, 0.507);
+}
+.converstations__container .conv__account .MuiAvatar-circle {
+    margin-left: 15px;
+}
+.converstations__container .conv__account button {
+    background-color: #00e676;
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    border: 1px solid transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 35px;
+}
+.converstations__container .conv__account button:hover {
+    border: 1px solid black;
+}
+.converstations__container .conv__account .MuiAvatar-colorDefault {
+    margin: 0 15px;
+}
+.converstations__container .conv__account .conversations__plusSign {
+    top: 45px;
+    left: 27px;
+    position: absolute;
+    color: #00e676;
+    border-radius: 50%;
+    background-color: white;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+.converstations__container .conv__account .conversations__plusSign:active, .converstations__container .conv__account .conversations__plusSign:hover {
+    background-color: black;
+    color: white;
+}
+.converstations__container .conv__account .conversations__plusSign:active {
+    transform: scale(0.9);
+}
+.converstations__container .conv__account .MuiSvgIcon-root {
+    margin: 0 10px;
+}
+.converstations__container .conv__searchBar {
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    height: 10%;
+    justify-content: center;
+    padding: 0 10px;
+    position: relative;
+}
+.converstations__container .conv__searchBar input {
+    width: 90%;
+    padding: 10px;
+    padding-left: 55px;
+    border-radius: 12px;
+    border: none;
+    font-family: inherit;
+}
+.converstations__container .conv__searchBar .conv__glass {
+    position: absolute;
+    left: 20px;
+}
+.converstations__container .conv__list {
+    overflow-y: scroll;
+    height: 81.5vh;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.converstations__container::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.converstations__container {
+    -ms-overflow-style: none;
+   /* IE and Edge */
+    scrollbar-width: none;
+   /* Firefox */
+}

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import "./Conversations.scss";
+import "./Conversations.css";
 import SearchIcon from '@material-ui/icons/Search';
 import { Avatar } from '@material-ui/core';
 import Conversation from "../../components/Conversation/Conversation";
@@ -11,8 +11,6 @@ import * as actions from "../../store/action/index";
 import AddIcon from '@material-ui/icons/Add';
 import ImageModal from "../../components/UI/ImageModal/ImageModal";
 import WhiteScreen from "../../components/UI/WhiteScreen/WhiteScreen";
-import Collapse from '@material-ui/core/Collapse';
-import Paper from '@material-ui/core/Paper';
 const Conversations = (props) => {
     const [modal, setModal] = useState(false); 
     const [conversationName, setConversationName] = useState("");

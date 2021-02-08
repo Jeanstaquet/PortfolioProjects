@@ -1,5 +1,5 @@
 import React from 'react';
-import "./MenuContact.scss";
+import "./MenuContact.css";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 const MenuContact = (props) => {
     return (
