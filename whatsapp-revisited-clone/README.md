@@ -14,7 +14,7 @@ Here is a list, the details of each feature are further down in the file
 ### Tech
 This project uses mainly Javascript, the react library, npm packages and firebase.
 
-- [React](https://reactjs.org/) - The whole structure of the app is based on React
+- [React](https://reactjs.org/) - The whole front-end structure of the app is based on React
   - [React Router DOM](https://reactrouter.com/web/guides/quick-start) - This special package for react app made it possible to do the routing
 - [Firestore](https://firebase.google.com/docs/firestore) - NoSQL cloud database from firebase
 - [Redux](https://redux.js.org/) - Redux, this has made it possible to be a data layer for the application
