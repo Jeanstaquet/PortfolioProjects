@@ -29,12 +29,10 @@ const Chat = (props) => {
     const [showContactMenu, setShowContactMenu] = useState(false);
     let iconSend = mess.length < 1 ? <Tooltip title="Record a voice message" arrow><MicIcon className="chat__sendMessageMic"/></Tooltip> : <Tooltip title="Send the message" arrow><SendIcon onClick={(e) => sendMessage(e, mess)} className="chat__sendMessageMic"/></Tooltip>
 
-    useEffect(() => {
-        let unsubcribe = () => {
 
-        };
+    const getData = () => {
         if(props.userId && props.roomName) {
-            unsubcribe = db
+            db
             .collection("Users")
             .doc(props.userId)
             .collection("conversations")
@@ -47,11 +45,17 @@ const Chat = (props) => {
                         data: doc.data()
                     }
                 )))
-            ))
+            ), error => console.log(error))
         }
+    }
+
+    useEffect(() => {
+
+        getData();
 
         return () => {
-            unsubcribe()
+            getData()
+            console.log("remove")
         }
     }, [props.roomName, props.userId]);
 
