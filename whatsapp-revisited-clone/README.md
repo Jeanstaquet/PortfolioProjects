@@ -46,7 +46,8 @@ Main page :
 ![Main](https://firebasestorage.googleapis.com/v0/b/whatsappclone-46523.appspot.com/o/images%2FPhoto-conversation.PNG?alt=media&token=0c576216-91f7-4978-889c-33994535279e)
 
 ### Coding techniques, How to: Firebase
-[Firebase](https://firebase.google.com/) is a fairly simple tool to use. It allows you to listen to data changes, send data, or store files in a few lines of code. Moreover FB is very fast, it is a good solution for smaller applications like this one.
+For the data, auth, and storage i decided to use [Firebase](https://firebase.google.com/). It allows you to listen to data changes, send data, or store files in a few lines of code. Moreover FB is very fast, it is a good solution for smaller applications like this one.
+Here are short snippets that do most of the work :
 #### Listen for data
 To fetch firebase data in real time :
 
