@@ -94,17 +94,15 @@ const Chat = (props) => {
     const fileHandler = (event) => {
         if(event.target.files[0]) {
             if(event.target.files[0].type === "image/jpeg" || event.target.files[0].type === "image/png") {
-
+                setFileSend(event.target.files[0])
             } else {
                 setFileError(true) 
-                console.log("jjj")
                 setTimeout(() => {
                     setFileError(false) 
                 }, 5000)
                 event.target.value = null
-                
             }
-            setFileSend(event.target.files[0])
+            
         }
     }
     
@@ -118,7 +116,7 @@ const Chat = (props) => {
             .child(fileSend.name)
             .getDownloadURL()
             .then(url => {
-                        //Query for the current user
+                //Query for the current user
                 db
                 .collection("Users")
                 .doc(props.userId)
@@ -132,7 +130,7 @@ const Chat = (props) => {
                     sender: props.pseudo.pseudo
                 })
 
-                        //Query for the contact     
+                //Query for the contact     
                 db
                 .collection("Users")
                 .doc(props.contactData.userId)

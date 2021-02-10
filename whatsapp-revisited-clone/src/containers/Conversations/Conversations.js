@@ -81,20 +81,20 @@ const Conversations = (props) => {
         })
     }
 
-    useEffect(() => {
-        let unsubcribe = () => {
-
-        }
+    const getData = () => {
         if(props.userId) {
-            unsubcribe = db.collection("Users")
+            db.collection("Users")
             .doc(props.userId)
             .collection("conversations")
             .onSnapshot(snapshot => setFetchecConversations(snapshot.docs.map((doc) => doc.data())))
         }
-        
-    
+    }
+
+    useEffect(() => {
+        getData()  
+              
         return () => {
-            unsubcribe()
+            getData()   
         }
     
     }, [props.userId])

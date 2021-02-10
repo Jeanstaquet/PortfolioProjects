@@ -72,8 +72,6 @@ export const authEP = (email, password, pseudo, isRegister) => {
                         password: password,
                         profilePhoto: "."
                     });
-                } else {
-
                 }
                 db.collection("Users").where("userId", "==", res.data.localId)
                 .get()
@@ -81,7 +79,8 @@ export const authEP = (email, password, pseudo, isRegister) => {
                     querySnapShot.forEach(function(doc) {
                         dispatch(pseudoHandler(doc.data()))
                     })
-                })
+                });
+                
                 dispatch(authSuccess(res.data.idToken, res.data.localId, 60))
             })
             .catch(error => {
