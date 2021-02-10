@@ -21,6 +21,7 @@ This project uses mainly Javascript, the react library, npm packages and firebas
 - [Firestore](https://firebase.google.com/docs/firestore) - NoSQL cloud database from firebase. This database is very quick and easy to use. It also allows to leave the fetching code of the databases in the front-end.
 - [Redux](https://redux.js.org/) - Redux, this has made it possible to be a data layer for the application. For this application it may be an         overkill, but `redux` offers very user-friendly debugging tools. I will replace the `redux` code with a React `useReducer` later on.
 - [Material-UI](https://material-ui.com/) - React components for web development
+- [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser
 
 ### Installation
 To run this project, install it locally using npm:
@@ -35,8 +36,7 @@ $ npm start
 On the link below, I make a short presentation of the main features of the app.
 I create two different profiles. Then I change the profile picture, write messages in the chat and share a picture. Finally I log out of the application. 
 
-On the right tab, I have the console open to display any error message.
-follow this link => https://firebasestorage.googleapis.com/v0/b/whatsappclone-46523.appspot.com/o/images%2FPres.gif?alt=media&token=24a79444-f910-4758-a07d-4e7b0543291f
+Follow this link => https://firebasestorage.googleapis.com/v0/b/whatsappclone-46523.appspot.com/o/images%2FPres.gif?alt=media&token=24a79444-f910-4758-a07d-4e7b0543291f
 
 #### If you can't see the video, here are two previews of the app:
 Auth page:
@@ -72,8 +72,7 @@ useEffect(() => {
 ```
 This method makes it possible to listen to the change of data in the database. At the slightest change, the listener fetches the data. However, do not forget to put the function in `componentWillUnmount` which the return statement of the hook `useEffect()`.
 
-<br/>
-#### Send data to Firebase:
+#### Send data to Firebase
 To send data in real time:
 
 ```js
@@ -90,12 +89,10 @@ db
         sender: props.pseudo.pseudo
     })
 ```
-<br/>
+
 #### Handling files with Firebase
-To store
 To send data into Firebase, nothing could be simpler, just specify the documents and collections to target, and it adds the data. We can also add the variable of firebase timestamp to be regular in the format of the date and time used for the data.
 
-<br/>
 First we need to handle the file in the state (here it is pure JS):
 ```js
     const fileHandler = (event) => {
@@ -110,7 +107,6 @@ First we need to handle the file in the state (here it is pure JS):
     }
 ```
 
-<br/>
 Then it is sent to Firebase:
 ```js
 const fileUploadHandler = () => {
@@ -143,7 +139,29 @@ To store a file you must have the file in the state. Then, we create a reference
 
 
 ### Last one: Handle auth with firebase
-
+```js
+const authData = {
+    email: email,
+    password: password, 
+    returnSecureToken: true}
+//used to signIn 
+const url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAetezyzd_TAHEUZlwBR7FgJKY7vieoebY";
+//This is a different URL to signUp
+axios.post(url, authData)
+    .then(res => {
+        if(isRegister) {
+            //Create an entry in the db for the user
+            db.collection("Users").doc(res.data.localId).set({
+                userId: res.data.localId,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                email: email,
+                pseudo: pseudo,
+                password: password,
+                profilePhoto: "."
+            });
+        }
+    
+```
 
 ### Inspiration
 I got the idea from watching a youtube video from [Clever Programmer](https://www.youtube.com/watch?v=pUxrDcITyjg&ab_channel=CleverProgrammer). However, no code was copied, and I 100% created my own project structure.
