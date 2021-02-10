@@ -1,6 +1,8 @@
 # Project: Whatsapp-clone
 This project is a clone of what's app web. It has all the most important features of the real whats'app app.
 
+_info: The link is available on request as it does not have a back-end to protect data transactions._
+
 # Features!
 Here is a list, the details of each feature are further down in the file
 - Mainly the same IU as the original Whats'app
