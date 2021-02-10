@@ -11,7 +11,7 @@ Here is a list, the details of each feature are further down in the file
 - You can send files in the chat 
 - Change your profile picture
 - Creation/deletion of chat rooms
-- Being improved: recording of audio messages
+- Being improved: recording of audio messages & adding a backend
 
 ### Tech
 This project uses mainly Javascript, the react library, npm packages and firebase.
@@ -19,7 +19,7 @@ This project uses mainly Javascript, the react library, npm packages and firebas
 - [React](https://reactjs.org/) - The whole front-end structure of the app is based on React
   - [React Router DOM](https://reactrouter.com/web/guides/quick-start) - This special package for react app made it possible to do the routing
 - [Firestore](https://firebase.google.com/docs/firestore) - NoSQL cloud database from firebase. This database is very quick and easy to use. It also allows to leave the fetching code of the databases in the front-end.
-- [Redux](https://redux.js.org/) - Redux, this has made it possible to be a data layer for the application. For this application it may be an         overkill, but `redux` offers very user-friendly debugging tools. I will replace the `redux` code with a React `useReducer` later on.
+- [Redux](https://redux.js.org/) - Redux, this has made it possible to be a data layer for the application. For this application it may be an overkill, but `redux` offers very user-friendly debugging tools. I will replace the `redux` code with a React `useReducer` later on.
 - [Material-UI](https://material-ui.com/) - React components for web development
 - [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser
 
@@ -45,8 +45,8 @@ Auth page:
 Main page :
 ![Main](https://firebasestorage.googleapis.com/v0/b/whatsappclone-46523.appspot.com/o/images%2FPhoto-conversation.PNG?alt=media&token=0c576216-91f7-4978-889c-33994535279e)
 
-### Coding techniques: Firebase
-Firebase is a fairly simple tool to use. It allows you to listen to data changes, send data, or store files in a few lines of code. Moreover FB is very fast, it is a good solution for smaller applications like this one.
+### Coding techniques, How to: Firebase
+[Firebase](https://firebase.google.com/) is a fairly simple tool to use. It allows you to listen to data changes, send data, or store files in a few lines of code. Moreover FB is very fast, it is a good solution for smaller applications like this one.
 #### Listen for data
 To fetch firebase data in real time :
 
@@ -146,7 +146,7 @@ const authData = {
     returnSecureToken: true}
 //used to signIn 
 const url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAetezyzd_TAHEUZlwBR7FgJKY7vieoebY";
-//This is a different URL to signUp
+//There is a different URL to signUp
 axios.post(url, authData)
     .then(res => {
         if(isRegister) {
