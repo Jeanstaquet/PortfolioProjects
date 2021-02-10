@@ -1,5 +1,5 @@
 import axios from "axios";
-import db, {auth, provider} from "../../firebase";
+import db from "../../firebase";
 import firebase from "firebase";
 
 export const authStart = () => {

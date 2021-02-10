@@ -4,7 +4,7 @@ const Message = (props) => {
     return (
         <div className={props.reciever ? "message__container" : "message__container sender"}>
             <p>{props.message}</p>
-            {props.img ? <img src={props.img} onClick={props.clicked}/> : null}
+            {props.img ? <img alt={"sharedImage"}src={props.img} onClick={props.clicked}/> : null}
             <span>{props.timestamp}</span>
         </div>
     );

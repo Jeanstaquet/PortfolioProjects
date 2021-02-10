@@ -210,23 +210,23 @@ const Chat = (props) => {
             <ImageModal show={true} image={imageToShow ? true : null} imgUrl={imageToShow} close={closeImageModal}/>
             <div className="chat__banner">
                 <div className="chat__bannerInfo">
-                    <Avatar className="chat__bannerAvatar" src={props.contactData.photo !== null ? props.contactData.photo: null}></Avatar>
+                    <Avatar className="chat__bannerAvatar" src={props.contactData !== null ? props.contactData.photo: null}></Avatar>
                     <div className="chat__info">
                         <p>{props.contact}</p>
                     </div>
 
                 </div>
                 <div className="chat__bannerIcon">
-                    <Tooltip title="Search a message" arrow>
+                    {/* <Tooltip title="Search a message" arrow> */}
                         <SearchIcon onClick={searchBarHandler}/>
-                    </Tooltip>
-                    <Tooltip title="You can write 'img' or a letter" arrow>
+                    {/* </Tooltip> */}
+                    {/* <Tooltip title="You can write 'img' or a letter" arrow> */}
                     <input type="text" value={searchBar} disabled={props.roomName===null} className={!showSearchBar ? "chat__bannerSearch" : "chat__bannerSearch show"} onChange={e => setSearchBar(e.target.value)}/>
-                    </Tooltip>
+                    {/* </Tooltip> */}
                     <MoreHorizIcon onClick={contactMenuHandler}/>
-                    <Tooltip title="options" arrow >
+                    {/* <Tooltip title="options" arrow > */}
                         <MenuContact show={showContactMenu && props.roomName!==null} delete={deleteConversation}/>
-                    </Tooltip>
+                    {/* </Tooltip> */}
                 </div>
             </div>
             <div className="chat__content">
@@ -243,7 +243,7 @@ const Chat = (props) => {
                              message={room.data.imgUrl ? null : room.data.message} 
                              img={room.data.imgUrl}
                              clicked={() => clickedHandler(room.data.imgUrl)}
-                             reciever={room.data.sender == props.pseudo.pseudo ? false : true}
+                             reciever={room.data.sender === props.pseudo.pseudo ? false : true}
                              timestamp={room.data.timestamp ? (new Date(room.data.timestamp.seconds * 1000)).toLocaleDateString('en-UK') : null} />
                 ))}
             </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import "./Conversation.css";
 import { Avatar } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import {Link} from "react-router-dom";
 import {connect} from "react-redux"
