@@ -18,7 +18,7 @@ This project uses mainly Javascript, the react library, npm packages and firebas
 
 - [React](https://reactjs.org/) - The whole front-end structure of the app is based on React
   - [React Router DOM](https://reactrouter.com/web/guides/quick-start) - This special package for react app made it possible to do the routing
-- [Firestore](https://firebase.google.com/docs/firestore) - NoSQL cloud database from firebase. This database is very quick and easy to use. It also allows to leave the fetching code of the databases in the front-end.
+- [Firestore](https://firebase.google.com/docs/firestore) - NoSQL cloud database from firebase. This schema-free database is very quick and easy to use. It also allows to leave the fetching code of the databases in the front-end.
 - [Redux](https://redux.js.org/) - Redux, this has made it possible to be a data layer for the application. For this application it may be an overkill, but `redux` offers very user-friendly debugging tools. I will replace the `redux` code with a React `useReducer` later on.
 - [Material-UI](https://material-ui.com/) - React components for web development
 - [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser
