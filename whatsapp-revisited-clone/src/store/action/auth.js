@@ -2,12 +2,14 @@ import axios from "axios";
 import db from "../../firebase";
 import firebase from "firebase";
 
+//Start the auth process
 export const authStart = () => {
     return {
         type: "AUTH_START"
     }
 }
 
+//Auth process is validated
 export const authSuccess = (token, userId, expirationTime) => {
     return {
         type: "AUTH_SUCCESS",
@@ -17,6 +19,7 @@ export const authSuccess = (token, userId, expirationTime) => {
     }
 }
 
+//Auth process fail
 export const authFail = (message) => {
     return {
         type: "AUTH_FAIL",
@@ -24,18 +27,21 @@ export const authFail = (message) => {
     }
 }
 
+//Logout handler
 export const logout = () => {
     return {
         type: "LOGOUT"
     }
 }
 
+//Reset the auth flow
 export const authReset = () => {
     return {
         type: "AUTH_RESET"
     }
 }
 
+//Manages the state for the pseudo
 export const pseudoHandler = (pseudo) => {
     return {
         type: "PSEUDO_HANDLER",
@@ -43,7 +49,7 @@ export const pseudoHandler = (pseudo) => {
     }
 }
 
-
+//Manages the auth with firebase
 export const authEP = (email, password, pseudo, isRegister) => {
     return dispatch => {
         dispatch(authStart());
@@ -53,6 +59,7 @@ export const authEP = (email, password, pseudo, isRegister) => {
             returnSecureToken: true
         }
         let url = ""
+        //Changes the url depending if the user is already registered
         if(isRegister) {
             url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAetezyzd_TAHEUZlwBR7FgJKY7vieoebY";
 
@@ -61,6 +68,7 @@ export const authEP = (email, password, pseudo, isRegister) => {
         if(!isRegister) {
             url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAetezyzd_TAHEUZlwBR7FgJKY7vieoebY"
         }
+        //Send the request to auth 
         axios.post(url, authData)
             .then(res => {
                 if(isRegister) {
@@ -92,40 +100,7 @@ export const authEP = (email, password, pseudo, isRegister) => {
     }
 }
 
-// export const googleAuth = (token, userId, photo, isNew, email) => {
-//     return {
-//         type: "SIGN_WITH_GOOGLE",
-//         token: token,
-//         userId: userId,
-//         photo: photo,
-//         isNew: isNew,
-//         email: email
-//     }
-// }
-
-// export const signWithGoogle = () => {
-//     return dispatch => {
-//         auth
-//         .signInWithPopup(provider)
-//         .then(result => {
-//             dispatch(googleAuth(result.credential.idToken, 
-//                                 result.additionalUserInfo.profile.id, 
-//                                 result.additionalUserInfo.profile.picture, 
-//                                 result.additionalUserInfo.isNewUser,
-//                                 result.additionalUserInfo.profile.email));
-//             if(result.additionalUserInfo.isNew) {
-//                 db.collection("Users").add({
-//                     userId: result.additionalUserInfo.profile.id,
-//                     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-//                     email: result.additionalUserInfo.profile.email,
-//                     password: "googleConnection"
-//                 });
-//             }
-            
-//         })
-//     }
-// }
-
+//Manages the info for the current chat room
 export const roomNameHandler = (roomName, contact, details) => {
     return {
         type: "ROOM_NAME_HANDLER",
@@ -135,6 +110,7 @@ export const roomNameHandler = (roomName, contact, details) => {
     }
 }
 
+//State for the contact data of a room
 export const contactDetails = (details) => {
     return {
         type: "CONTACT_DATA",
@@ -142,19 +118,21 @@ export const contactDetails = (details) => {
     }
 }
 
+//Manages the state for the logout features
 export const logoutHandler = () => {
     return {
         type: "LOGOUT_HANDLER"
     }
 }
 
+//Delete the current chat room
 export const roomDeleteHandler = () => {
     return {
         type: "ROOM_DELETE_HANDLER"
     }
 }
 
-
+//Manages the photo of the user
 export const photoHandler = (photo) => {
     return {
         type: "PHOTO_HANDLER",

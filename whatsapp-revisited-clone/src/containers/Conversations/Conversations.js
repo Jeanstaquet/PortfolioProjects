@@ -22,20 +22,23 @@ const Conversations = (props) => {
     const [onModifyPP, setOnModifyPP] = useState(false);
     const [filePP, setFilePP] = useState(null)
 
+    //Show the modal
     const toggleModal = () => {
         setModal(true)
     }
 
+    //Hide the modal
     const toggleModalClose = (e) => {
         e.preventDefault();
         setModal(false)
     }
 
+    //Store the value of the new conversation name
     const changeModalHandler = (e) => {
         setConversationName(e.target.value)
     }
 
-
+    //Store the value of the new contact name
     const changeContactHandler = (e) => {
         setContact(e.target.value)
     }
@@ -146,26 +149,37 @@ const Conversations = (props) => {
         <div className="converstations__container" >
             <FeatureMenu toggle={handleMenu} open={menuOpenClose}/>
             <WhiteScreen hide={(props.roomName || onModifyPP || modal)}/>
-            <Modal show={modal} 
-                   click={toggleModalClose} 
-                   change={changeModalHandler}
-                   changeContact={changeContactHandler} 
-                   ok={addConversationHandler}
-                   errorMessage={errorMessage}/>
+            <Modal 
+                show={modal} 
+                click={toggleModalClose} 
+                change={changeModalHandler}
+                changeContact={changeContactHandler} 
+                ok={addConversationHandler}
+                errorMessage={errorMessage}
+            />
             <div className="conv__account">
-                
-                <Avatar className="conv__avatar" src={props.pseudo.photo}>{props.pseudo !== null ? props.pseudo.pseudo[0] : null}</Avatar>
-                <AddIcon className="conversations__plusSign" onClick={handlerModalPP}/>
+                <Avatar 
+                    className="conv__avatar" 
+                    src={props.pseudo.photo}>
+                    {props.pseudo !== null ? props.pseudo.pseudo[0] : null}
+                </Avatar>
+                <AddIcon 
+                    className="conversations__plusSign" onClick={handlerModalPP}/>
                 <ImageModal 
                     changePP={true} 
                     submit={newPPHandler} 
                     show={onModifyPP}
                     closePP={handlerModalPP}
-                    newFile={setFilePPHandler}/> 
+                    newFile={setFilePPHandler}
+                /> 
                 <button onClick={handleMenu}>MENU</button>
             </div>
             <div className="conv__searchBar">
-                <input type="text" value={filterName} onChange={e => searchHandler(e)}/>
+                <input 
+                    type="text" 
+                    value={filterName} 
+                    onChange={e => searchHandler(e)}
+                />
                 <SearchIcon className="conv__glass"/>
             </div>
             <div className="conv__list">
@@ -175,7 +189,8 @@ const Conversations = (props) => {
                                          name={conv.contact.pseudo} 
                                          roomname={conv.name}
                                          photo={conv.contact.photo}
-                                         dispatchRoomName={() => props.roomNameHandler(conv.name, conv.contact.pseudo, conv.contact)}/>
+                                         dispatchRoomName={() => props.roomNameHandler(conv.name, conv.contact.pseudo, conv.contact)}
+                            />
                 })}
             </div>
         </div>

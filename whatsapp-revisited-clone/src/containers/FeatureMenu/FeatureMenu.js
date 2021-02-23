@@ -5,11 +5,18 @@ import ClearIcon from '@material-ui/icons/Clear';
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import * as actions from "../../store/action/index";
+
+//Manages the menu displaying the user's data and handle the logout flow
 const FeatureMenu = (props) => {
+    //Open/close the modal
     const [openModal, setOpenModal] = useState(false);
+
+
+    //Open the modal
     const modalOpenHandler = () => {
         setOpenModal(true)
     }
+    //Close the modal
     const modalCloseHandler = () => {
         setOpenModal(false)
     }
@@ -19,10 +26,17 @@ const FeatureMenu = (props) => {
         <div className={props.open ? "featureMenu__container toggleMenu" : "featureMenu__container"}>
             {props.isAuth ? <Redirect to="/"/> : null}
             <div className="featureMenu__container2">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Whatsapp_logo.svg" alt="whatsapp logo" className="featureMenu__WLogo"/>
-                <ClearIcon className="feateMenu__clearIcon" onClick={props.toggle}/>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Whatsapp_logo.svg" 
+                     alt="whatsapp logo" 
+                     className="featureMenu__WLogo"/>
+                <ClearIcon 
+                    className="feateMenu__clearIcon" 
+                    onClick={props.toggle}/>
                 <ul className="featureMenu__text">
-                    <li onMouseOver={() => modalOpenHandler()} onMouseLeave={() => modalCloseHandler()}>Account</li>
+                    <li 
+                        onMouseOver={() => modalOpenHandler()} 
+                        onMouseLeave={() => modalCloseHandler()}>
+                        Account</li>
                     <div className="featureMenu__accountModal">
                         <Modal 
                             openModal={openModal} 
@@ -42,6 +56,7 @@ const FeatureMenu = (props) => {
 
 const mapStateToProps = (state) => {
     return {
+        //take user data and if the user is registered
         pseudo: state.pseudo,
         isAuth: state.userId === null
     }
@@ -49,6 +64,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        //Logout handler
         logoutHandler: () => dispatch(actions.logoutHandler())
     }
 }
