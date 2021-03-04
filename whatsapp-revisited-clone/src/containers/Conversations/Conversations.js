@@ -178,7 +178,10 @@ const Conversations = (props) => {
 
     return (
         <div className="converstations__container" >
-            <FeatureMenu toggle={handleMenu} open={menuOpenClose}/>
+            <FeatureMenu 
+                toggle={handleMenu} 
+                open={menuOpenClose}
+            />
             <WhiteScreen hide={(props.roomName || onModifyPP || modal)}/>
             <Modal 
                 show={modal} 
@@ -243,8 +246,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        //Handles the conversation details when the conversation changes
         roomNameHandler: (r, c, d) => dispatch(actions.roomNameHandler(r, c, d)),
+        //Handles the contact details when the conversation changes
         contactDetails: (d) => dispatch(actions.contactDetails(d)),
+        //Handles the avatar details
         photoHandler: (p) => dispatch(actions.photoHandler(p))
     }
 }
