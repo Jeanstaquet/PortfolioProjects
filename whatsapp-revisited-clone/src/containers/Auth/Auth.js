@@ -12,6 +12,7 @@ const Auth = (props) => {
     const [method, setMethod] = useState("Register");
     const [errorMessage, setErrorMessage] = useState(false);
 
+    //Sign in/up the user
     const authCreateHandler = (e) => {
         e.preventDefault();
         //props.registerMethod();
@@ -32,17 +33,17 @@ const Auth = (props) => {
     
     }
 
+    //Manages the visitor auth
     const visitorAuth = () => {
         props.auth("admin@admin.com", "admin123456", false)
     }
 
+    //Switchs between Sign in/up
     const switchMethod = () => {
         if(method === "Register") {
-            //props.loginMethod();
             setMethod("Login");
         } else if (method === "Login") {
             setMethod("Register");
-            //props.registerMethod();
         }
     }
 

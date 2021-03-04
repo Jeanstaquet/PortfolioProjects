@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Chat.css";
-import Message from "../../components/Message/Message";
 import db, { storage } from "../../firebase";
 import firebase from "firebase";
 import { connect } from "react-redux";
